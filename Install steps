@@ -1,0 +1,33 @@
+1- Download Prometheus (https://prometheus.io/download/) for your linux system
+2- Extract the file ( tar xvfz prometheus-x.xx.x.linux-amd64.tar.gz )
+3- Enter the extracted folder ( cd prometheus-x.xx.x.linux-amd64 )
+4- Run Prometheus ( ./prometheus )
+
+Make your_ip:9090 in your browser to test if it's working
+
+5- Open new ssh session (don't close Prometheus window) and Download Node exporter (https://prometheus.io/download/#node_exporter)
+6- Extract the file (tar xvfz node_exporter-x.xx.x.linux-amd64.tar.gz)
+7- Enter the extracted folder ( cd node_exporter-x.xx.x.linux-amd64 )
+8- Run node_exporter ( ./node_exporter)
+
+Make your_ip:9100 in your browser to test if it's working
+
+9- Open new ssh session (don't close node_exporter window)
+10- Enter the extracted folder ( cd prometheus-x.xx.x.linux-amd64 )
+11- Edit the file prometheus.yml (nano prometheus.yml)
+12- Edit the targets, change de dor 9090 to 9100 (- targets: ['localhost:9100','your_ip:9100']) you can add more computers
+13- Save the file and go to the Prometheus window (step 4 window) and restart ( crtl+c ) ( ./prometheus )
+
+Make your_ip:9090/targets in your browser to check the hosts (status up)
+
+14- Add grafana rep ( echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee )
+15- update your system ( sudo apt update) (sudo apt upgrade )
+16- intall grafana ( sudo apt-get install grafana-enterprise )
+17- Start grafana ( sudo systemctl daemon-reload ) ( sudo systemctl start grafana-server ) ( sudo systemctl status grafana-server )
+18- Configure grafana to run at boot time ( sudo systemctl enable grafana-server.service )
+
+Make your_ip:3000 in your browser to enter the grafana, the user name and pass are admin admin
+
+19- In the search box search for data source and install Prometheus
+19- In the HTTP (url) paste http://your_ip:9090 and save
+20- Now import this dashboard 1860 ( Dashboards tab, new, and paste de code) to your grafana and save
