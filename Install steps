@@ -20,14 +20,18 @@ Make your_ip:9100 in your browser to test if it's working
 
 Make your_ip:9090/targets in your browser to check the hosts (status up)
 
-14- Add grafana rep ( echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee )
-15- update your system ( sudo apt update) (sudo apt upgrade )
-16- intall grafana ( sudo apt-get install grafana-enterprise )
-17- Start grafana ( sudo systemctl daemon-reload ) ( sudo systemctl start grafana-server ) ( sudo systemctl status grafana-server )
-18- Configure grafana to run at boot time ( sudo systemctl enable grafana-server.service )
+14- sudo apt-get install -y apt-transport-https
+15- sudo apt-get install -y software-properties-common wget
+16- wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+17- sudo apt update
+18- Add grafana rep ( echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee )
+19- update your system ( sudo apt update) (sudo apt upgrade )
+20- intall grafana ( sudo apt-get install grafana-enterprise )
+21- Start grafana ( sudo systemctl daemon-reload ) ( sudo systemctl start grafana-server ) ( sudo systemctl status grafana-server )
+22- Configure grafana to run at boot time ( sudo systemctl enable grafana-server.service )
 
 Make your_ip:3000 in your browser to enter the grafana, the user name and pass are admin admin
 
-19- In the search box search for data source and install Prometheus
-19- In the HTTP (url) paste http://your_ip:9090 and save
-20- Now import this dashboard 1860 ( Dashboards tab, new, and paste de code) to your grafana and save
+23- In the search box search for data source and install Prometheus
+24- In the HTTP (url) paste http://your_ip:9090 and save
+25- Now import this dashboard 1860 ( Dashboards tab, new, and paste de code) to your grafana and save
