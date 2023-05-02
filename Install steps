@@ -24,7 +24,7 @@ Make your_ip:9090/targets in your browser to check the hosts (status up)
 15- sudo apt-get install -y software-properties-common wget
 16- wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 17- sudo apt update
-18- Add grafana rep ( echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee )
+18- Add grafana rep ( echo "deb https://packages.grafana.com/enterprise/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list )
 19- update your system ( sudo apt update) (sudo apt upgrade )
 20- intall grafana ( sudo apt-get install grafana-enterprise )
 21- Start grafana ( sudo systemctl daemon-reload ) ( sudo systemctl start grafana-server ) ( sudo systemctl status grafana-server )
